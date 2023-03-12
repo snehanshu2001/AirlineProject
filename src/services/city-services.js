@@ -31,9 +31,9 @@ class CityService{
             console.log('catch block ran: ', error);
         }
     }
-    async getCity(cityId){
+    async getAllCity(filter){
         try {
-        const city =await this.cityRepository.getCity(cityId) ;
+        const city =await this.cityRepository.getAllCity({name:filter.name}) ;
         return city;
             
         } catch (error) {

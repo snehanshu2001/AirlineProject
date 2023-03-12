@@ -2,7 +2,7 @@
 const db =require("../models/index");
 
 const { City } = require('../models/index');
-
+const { Op } = require("sequelize");
 class CityRepository{
     async createCity({name}){
         try{
@@ -51,6 +51,27 @@ class CityRepository{
     city.name=data.name;
     await city.save();
             return city;
+        } catch (error) {
+            console.log('catch block ran: ', error);
+        }
+    }
+    async getAllCity(filter){
+        try {
+            if(filter.name){
+                const cities = await db.city.findAll({
+                    where : {
+                       name:{ [Op.startsWith]:filter.name
+                       }
+                    }
+                });
+                return cities;
+            }
+            else{
+            const cities = await db.city.findAll();
+            return cities;
+            }
+
+            
         } catch (error) {
             console.log('catch block ran: ', error);
         }
