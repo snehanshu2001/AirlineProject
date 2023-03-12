@@ -22,9 +22,9 @@ const create = async(req,res)=>{
 }
 const get = async(req,res)=>{
     try {
-        const city = await cityService.getCity(req.params.id);
+        const response = await cityService.getCity(req.params.id);
         return res.status(200).json({
-            data:city,
+            data:response,
             success:true,
             message:"city get successfully"
         })
@@ -40,7 +40,7 @@ const get = async(req,res)=>{
 }
 const destory = async(req,res)=>{
     try {
-        const respone = await cityService.deleteCity(req.params.id);
+        const response = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
             data:response,
             success:true,
