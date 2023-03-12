@@ -1,7 +1,7 @@
 
 const db =require("../models/index");
 
-class cityRepository{
+class CityRepository{
     async createCity({name}){
         try{
             const city= await db.city.create({name});
@@ -51,4 +51,4 @@ class cityRepository{
         }
     }
 }
-module.exports = cityRepository;
+module.exports = CityRepository;
