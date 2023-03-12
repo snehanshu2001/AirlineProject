@@ -24,5 +24,31 @@ class cityRepository{
         }
 
     }
+    
+    async getCity(cityId){
+        try {
+            const city=await db.city.findOne({
+                where:{
+                    id:cityId
+                }
+            });
+            return city;
+        } catch (error) {
+            console.log('catch block ran: ', error);
+        }
+    }
+
+    async updateCity(cityId,data){
+        try {
+            const city =await db.city.update(data,{
+                where:{
+                    id:cityId
+                }
+            })
+            return city;
+        } catch (error) {
+            console.log('catch block ran: ', error);
+        }
+    }
 }
 module.exports = cityRepository;
