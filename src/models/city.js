@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'cityId'
       }
 
+      )
     }
   }
   city.init({

@@ -1,4 +1,4 @@
-const {CityRepository}=require("../repository/index");
+const {CityRepository,AirportRepository}=require("../repository/index");
 
 class CityService{
     constructor(){
@@ -13,6 +13,15 @@ class CityService{
         console.log('catch block ran: ', error);
       }
     }
+    async getCity(data){
+        try {
+         const city =await this.cityRepository.getCity(data) ;
+         return city; 
+        } catch (error) {
+          console.log('catch block ran: ', error);
+        }
+      }
+
     async deleteCity(cityId){
         try {
 
