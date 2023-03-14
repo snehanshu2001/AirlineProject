@@ -1,4 +1,4 @@
-const {city,Airport}=require('../models/index');
+
 const db =require("../models/index");
 const { Op } = require("sequelize");
 class AirportRepository{
